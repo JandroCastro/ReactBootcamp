@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function HeaderNavBar({ onFilterChange }) {
+function HeaderNavBar({ onFilterChange, onClickLogo }) {
   const menuOptions = ["Inicio", "Categorías", "Ofertas", "Contacto"];
   const [textoFiltro, setTextoFiltro] = useState("");
 
@@ -12,7 +12,9 @@ function HeaderNavBar({ onFilterChange }) {
 
   return (
     <>
-      <div className="logo">MiTienda</div>
+      <div onClick={onClickLogo} className="logo">
+        MiTienda
+      </div>
       <ul>
         {menuOptions.map((opt) => (
           <li key={opt}>{opt}</li>

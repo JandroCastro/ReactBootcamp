@@ -4,9 +4,8 @@ import "./ProductsSection.css";
 import data from "../../fakeapi/data.json";
 
 function ProductsSection({ filtro }) {
-  const products = data.filter(
-    (product) => product.title.toLowerCase().includes(filtro.toLowerCase())
-    // console.log(filtro)
+  const products = data.filter((product) =>
+    product.title.toLowerCase().includes(filtro.toLowerCase())
   );
 
   return (
