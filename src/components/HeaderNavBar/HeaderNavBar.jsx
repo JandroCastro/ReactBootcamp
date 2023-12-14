@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useFiltro } from "../../context/FilterContext";
 
-function HeaderNavBar({ onFilterChange, onClickLogo }) {
-  const menuOptions = ["Inicio", "Categorías", "Ofertas", "Contacto"];
-  const [textoFiltro, setTextoFiltro] = useState("");
+function HeaderNavBar() {
+  const { filtro, changeFiltro } = useFiltro();
 
   const handleInputChange = (event) => {
     const nuevoTexto = event.target.value;
-    setTextoFiltro(nuevoTexto);
-    onFilterChange(nuevoTexto);
+    changeFiltro(nuevoTexto);
   };
+
+  const menuOptions = ["Categorías", "Ofertas", "Contacto"];
 
   return (
     <>
-      <div onClick={onClickLogo} className="logo">
-        MiTienda
-      </div>
+      <Link to={"/"}>
+        <div className="logo">MiTienda</div>
+      </Link>
       <ul>
         {menuOptions.map((opt) => (
           <li key={opt}>{opt}</li>
@@ -24,7 +26,7 @@ function HeaderNavBar({ onFilterChange, onClickLogo }) {
         <input
           type="text"
           placeholder="Buscar productos"
-          value={textoFiltro}
+          value={filtro}
           onChange={handleInputChange}
         />
       </div>

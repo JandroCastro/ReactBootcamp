@@ -10,11 +10,8 @@ function Header({ onFilterChange, showCart, showProducts }) {
   return (
     <header>
       <div className="header-container">
-        <HeaderNavBar
-          onFilterChange={handleFilterChange}
-          onClickLogo={showProducts}
-        />
-        <IconsList onClickCartIcon={showCart} />
+        <HeaderNavBar />
+        <IconsList />
       </div>
     </header>
   );

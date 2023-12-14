@@ -6,13 +6,14 @@ import ThemeIcon from "../../icons/ThemeIcon.svg";
 
 import { useCart } from "../../hooks/useCart";
 import { useTheme } from "../../hooks/useTheme";
+import { Link } from "react-router-dom";
 
 function IconsList({ onClickCartIcon }) {
   const whiteIconStyle = { filter: "invert(100%)" };
   const { cartItems } = useCart();
   const { toggleTheme } = useTheme();
 
-  const cartItemCount = cartItems.length;
+  const cartItemCount = cartItems?.length;
 
   return (
     <ul className="user-icons">
@@ -26,10 +27,12 @@ function IconsList({ onClickCartIcon }) {
         <img src={ThemeIcon} alt="" style={whiteIconStyle} />
       </li>
       <li className="cart-icon" onClick={onClickCartIcon}>
-        <img src={CartIcon} alt="" style={whiteIconStyle} />
-        {cartItemCount > 0 && (
-          <span className="cart-count">{cartItemCount}</span>
-        )}
+        <Link to={"/cart"}>
+          <img src={CartIcon} alt="" style={whiteIconStyle} />
+          {cartItemCount > 0 && (
+            <span className="cart-count">{cartItemCount}</span>
+          )}
+        </Link>
       </li>
     </ul>
   );

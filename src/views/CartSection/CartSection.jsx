@@ -3,7 +3,7 @@ import "./CartSection.css";
 import { useCart } from "../../hooks/useCart";
 
 const CartSection = () => {
-  const { cartItems } = useCart();
+  const { cartItems, resetCart } = useCart();
 
   const groupedCartItems = cartItems.reduce((acc, item) => {
     if (!acc[item.id]) {
@@ -20,6 +20,13 @@ const CartSection = () => {
     (acc, item) => acc + item.price * item.count,
     0
   );
+
+  const handleBuy = () => {
+    cartItems.length
+      ? alert("Serás redirigido a la pasarela de pago")
+      : alert("Añada productos al carro");
+    resetCart();
+  };
 
   return (
     <div className="cart-container">
@@ -42,6 +49,12 @@ const CartSection = () => {
       <div className="total-price">
         <p>Total a Pagar: ${totalPrice.toFixed(2)}</p>
       </div>
+      <button className="buy-button" onClick={handleBuy}>
+        Comprar
+      </button>
+      <button className="reset-button" onClick={() => resetCart()}>
+        Resetear Carro
+      </button>
     </div>
   );
 };

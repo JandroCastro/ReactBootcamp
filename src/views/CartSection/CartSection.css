@@ -51,3 +51,34 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.buy-button,
+.reset-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.reset-button {
+  background-color: #ff5722;
+  color: white;
+}
+
+.buy-button:hover,
+.reset-button:hover {
+  background-color: #0056b3;
+}

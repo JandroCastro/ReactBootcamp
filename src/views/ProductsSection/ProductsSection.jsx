@@ -1,9 +1,12 @@
 import React from "react";
-import ProductCard from "../ProductCard/ProductCard";
 import "./ProductsSection.css";
 import data from "../../fakeapi/data.json";
+import { useFiltro } from "../../context/FilterContext";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
-function ProductsSection({ filtro }) {
+function ProductsSection() {
+  const { filtro } = useFiltro();
+
   const products = data.filter((product) =>
     product.title.toLowerCase().includes(filtro.toLowerCase())
   );

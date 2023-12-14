@@ -1,0 +1,16 @@
+.back-button {
+  margin-bottom: 20px; /* Ajusta el margen según sea necesario */
+}
+
+.back-button a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #007bff; /* Color del texto del enlace */
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.back-button a i {
+  margin-right: 5px; /* Ajusta el margen del ícono */
+}

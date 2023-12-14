@@ -1,9 +1,13 @@
 import React from "react";
 import "./LoginForm.css";
 import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router";
 
 const LoginForm = () => {
   const { isLoggedIn, handleLogin, handleLogout, userData } = useAuth();
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,10 +17,16 @@ const LoginForm = () => {
 
     if (nombre && email) {
       handleLogin({ name: nombre, email });
+      navigate(location.state.pathname);
       form.reset();
     } else {
       alert("Por favor, completa todos los campos.");
     }
+  };
+
+  const onClickLogout = () => {
+    handleLogout();
+    navigate("/");
   };
 
   return (
@@ -34,7 +44,7 @@ const LoginForm = () => {
       </form>
       {isLoggedIn && (
         <div className="user-info">
-          <button onClick={handleLogout} type="button">
+          <button onClick={onClickLogout} type="button">
             Logout
           </button>
           <p>¿Quieres cerrar sesión, {userData.name}?</p>
@@ -45,3 +55,6 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
+//OnClick Logout para gestionar tanto la acción de logout del hook como la navegación
+//location para extraer de donde venimos
