@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const savedCartItems = JSON.parse(localStorage.getItem("cartItems"));
 
-    savedCartItems ? setCartItems(savedCartItems) : null;
+    savedCartItems && setCartItems(savedCartItems);
   }, []);
 
   const addToCart = (item) => {
@@ -18,7 +18,6 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cartItems", JSON.stringify(updatedCart));
   };
   const resetCart = () => {
-    // Limpia el carrito y el LocalStorage
     setCartItems([]);
     localStorage.removeItem("cartItems");
   };
