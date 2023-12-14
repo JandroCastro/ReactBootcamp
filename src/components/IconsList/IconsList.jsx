@@ -17,9 +17,11 @@ function IconsList({ onClickCartIcon }) {
 
   return (
     <ul className="user-icons">
-      <li className="user-icon">
-        <img src={UserIcon} alt="" style={whiteIconStyle} />
-      </li>
+      <Link to={"/login"}>
+        <li className="user-icon">
+          <img src={UserIcon} alt="" style={whiteIconStyle} />
+        </li>
+      </Link>
       <li className="like-icon">
         <img src={LikeIcon} alt="" style={whiteIconStyle} />
       </li>
