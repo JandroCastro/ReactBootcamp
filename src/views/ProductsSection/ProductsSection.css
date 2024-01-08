@@ -8,3 +8,21 @@
   ); /* Ajusta según sea necesario */
   gap: 16px;
 }
+
+.add-product-btn-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos si es necesario */
+}
+
+.add-product-btn {
+  /* Estilos para el botón */
+  padding: 10px 20px;
+  background-color: #f00; /* Cambia el color de fondo según desees */
+  color: #fff; /* Cambia el color del texto según desees */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Otros estilos que desees aplicar */
+}

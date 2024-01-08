@@ -1,5 +1,5 @@
 import React from "react";
-import products from "../../fakeapi/data.json";
+import data from "../../fakeapi/data.json";
 import { Outlet, useParams } from "react-router";
 import "./ProductDetails.css";
 import BackButton from "../../components/BackButton/BackButton";
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const ProductDetails = () => {
   const { id } = useParams();
 
-  const product = products.find((product) => product.id === parseInt(id));
+  const product = data.products.find((product) => product.id === parseInt(id));
 
   if (!product) {
     return <p>Loading product...</p>;
